@@ -73,21 +73,21 @@ def DisplayAvgResults(read_from, color, type, bp=False):
         plt.xticks(vals, [f"{v:.0f}" for v in vals])
 
 if __name__ == '__main__':
-    if input('Would you like to generate data?').lower() == 'y':
+    flags = input("Which cases should be shown? ")
+
+    if flags.lower().count('g') > 0:
         run_start = time.time()
         SaveResults('average.json', lambda x: ListF.randomIntList(x))
         SaveResults('best.json', lambda x: [i for i in range(x)])
         SaveResults('worst.json', lambda x: [(x - i) for i in range(x)])
-        print(f"Run complete after {time.time() - run_start:.2f} seconds")
+        print(f"Data generated after {time.time() - run_start:.2f} seconds")
 
-
-    flags = input("Which cases should be shown? ")
+    start = time.time()
     BOXPLOT = flags.lower().count('d') > 0
 
     CONSTANT_A = 0.000000051
     CONSTANT_B = 0.000000085
     CONSTANT_C = 0.000000103
-    start = time.time()
 
     ### Expected result ###
     n = [100 * (i + 1) for i in range(50)]
