@@ -96,19 +96,19 @@ if __name__ == '__main__':
     if flags.lower().count('a') > 0:
         DisplayAvgResults('average.json', 'blue', '-', bp=BOXPLOT)
         if flags.count('A') > 0:
-            plt.plot(n, [ (i * i) * CONSTANT_A for i in n ], '-', color='orange')
+            plt.plot(n, [ (i * i) * CONSTANT_A for i in n ], '--', color='black')
 
     ### BEST CASE ###
     if flags.lower().count('b') > 0:
-        DisplayAvgResults('best.json', 'yellow', '-', bp=BOXPLOT)
+        DisplayAvgResults('best.json', 'purple', '-', bp=BOXPLOT)
         if flags.count('B') > 0:
-            plt.plot(n, [ i * CONSTANT_B for i in n ], '-', color='purple')
+            plt.plot(n, [ i * CONSTANT_B for i in n ], '--', color='black')
 
     ### WORSE CASE ###
     if flags.lower().count('w') > 0:
         DisplayAvgResults('worst.json', 'red', '-', bp=BOXPLOT)
         if flags.count('W') > 0:
-            plt.plot(n, [ (i * i) * CONSTANT_C for i in n ], '-', color='cyan')
+            plt.plot(n, [ (i * i) * CONSTANT_C for i in n ], '--', color='black')
 
     plt.xlabel('Number of items')
     plt.ylabel('Sort time (seconds)')
